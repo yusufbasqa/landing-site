@@ -1,10 +1,29 @@
 "use client";
 
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { RoundedBox } from "@react-three/drei";
 import { scrollStore } from "@/lib/scroll-store";
+import { heroTextStore } from "@/lib/hero-text-store";
+
+// Below this width the cube sits centered beneath the text instead of
+// beside it, and shrinks so the whole cube stays in view.
+const MOBILE_BREAKPOINT = 768;
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`);
+    const update = () => setIsMobile(mql.matches);
+    update();
+    mql.addEventListener("change", update);
+    return () => mql.removeEventListener("change", update);
+  }, []);
+
+  return isMobile;
+}
 
 type Axis = "x" | "y" | "z";
 type Vec3 = [number, number, number];
@@ -83,7 +102,7 @@ type TurnState =
       indices: number[];
     };
 
-function RubiksCube() {
+function RubiksCube({ isMobile }: { isMobile: boolean }) {
   const cubieData = useMemo(() => buildCubies(), []);
   const cubies = useRef(cubieData.map((c) => ({ coord: [...c.coord] as Vec3 })));
   const meshRefs = useRef<(THREE.Mesh | null)[]>([]);
@@ -93,10 +112,31 @@ function RubiksCube() {
   const spin = useRef(0);
   const turnState = useRef<TurnState>({ phase: "idle", nextAt: 3 });
 
+  // Desktop sits the cube beside the text; mobile centers it, shrunk,
+  // beneath the text. The cube's own bounding half-extent (world units),
+  // used to keep it clear of the text above and the viewport edge below.
+  const baseX = isMobile ? 0 : 1.5;
+  const cubeScale = isMobile ? 0.4 : 1;
+  const cubeHalfExtent = 1.3 * cubeScale;
+  const mobileGapPx = 28;
+
   useFrame((state, delta) => {
     spin.current += delta * 0.12;
     const scrollT =
       scrollStore.y / (typeof window !== "undefined" ? window.innerHeight : 1);
+
+    // Mobile: derive the cube's resting Y from the text block's actual
+    // measured bottom edge, converted from px to world units, so the gap
+    // stays correct across every viewport height instead of a guessed
+    // constant that overlaps on short phones and floats too low on tall ones.
+    let baseY = 0;
+    if (isMobile) {
+      const pxPerWorldUnit = state.size.height / state.viewport.height;
+      const gapWorld = mobileGapPx / pxPerWorldUnit;
+      const textBottomWorldY =
+        state.viewport.height / 2 - heroTextStore.bottom / pxPerWorldUnit;
+      baseY = textBottomWorldY - gapWorld - cubeHalfExtent;
+    }
 
     const outer = outerRef.current;
     if (outer) {
@@ -104,7 +144,15 @@ function RubiksCube() {
       const targetX = -state.pointer.y * 0.15;
       outer.rotation.y = THREE.MathUtils.lerp(outer.rotation.y, targetY, 0.04);
       outer.rotation.x = THREE.MathUtils.lerp(outer.rotation.x, targetX, 0.04);
-      outer.position.y = THREE.MathUtils.lerp(outer.position.y, -scrollT * 1.4, 0.05);
+      outer.position.y = THREE.MathUtils.lerp(
+        outer.position.y,
+        baseY - scrollT * 1.4,
+        0.05
+      );
+      outer.position.x = THREE.MathUtils.lerp(outer.position.x, baseX, 0.08);
+      outer.scale.setScalar(
+        THREE.MathUtils.lerp(outer.scale.x, cubeScale, 0.08)
+      );
     }
 
     const pivot = pivotGroupRef.current;
@@ -173,7 +221,7 @@ function RubiksCube() {
   });
 
   return (
-    <group ref={outerRef} position={[1.5, 0, 0]}>
+    <group ref={outerRef} position={[baseX, 0, 0]} scale={cubeScale}>
       <group ref={staticGroupRef}>
         {cubieData.map((c, i) => (
           <RoundedBox
@@ -204,6 +252,8 @@ function RubiksCube() {
 }
 
 export function HeroScene() {
+  const isMobile = useIsMobile();
+
   return (
     <Canvas
       dpr={[1, 1.75]}
@@ -215,7 +265,7 @@ export function HeroScene() {
       <pointLight position={[4, -2, 3]} intensity={60} color="#22d3ee" />
       <pointLight position={[0, 4, -3]} intensity={40} color="#ffffff" />
       <pointLight position={[-2, -3, -4]} intensity={22} color="#8b5cf6" />
-      <RubiksCube />
+      <RubiksCube isMobile={isMobile} />
     </Canvas>
   );
 }

@@ -1,8 +1,10 @@
 "use client";
 
+import { useLayoutEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { motion, type Variants } from "framer-motion";
 import { FloatingStatusCard } from "./floating-status-card";
+import { heroTextStore } from "@/lib/hero-text-store";
 
 const HeroScene = dynamic(() => import("./hero-scene").then((m) => m.HeroScene), {
   ssr: false,
@@ -23,14 +25,37 @@ const item: Variants = {
 };
 
 export function Hero() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const section = sectionRef.current;
+    const text = textRef.current;
+    if (!section || !text) return;
+
+    const update = () => {
+      heroTextStore.bottom =
+        text.getBoundingClientRect().bottom - section.getBoundingClientRect().top;
+    };
+
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(text);
+    window.addEventListener("resize", update);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener("resize", update);
+    };
+  }, []);
+
   return (
-    <section className="relative overflow-hidden">
+    <section ref={sectionRef} className="relative overflow-hidden">
       <div className="absolute inset-0">
         <HeroScene />
       </div>
 
       <div className="pointer-events-none relative mx-auto flex min-h-[calc(100svh-4rem)] max-w-[1400px] flex-col justify-center px-6 py-24 sm:px-10">
-        <motion.div variants={container} initial="hidden" animate="show" className="max-w-xl">
+        <motion.div ref={textRef} variants={container} initial="hidden" animate="show" className="max-w-xl">
           <motion.div
             variants={item}
             className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-border bg-surface-raised/80 px-3 py-1 font-mono text-xs uppercase tracking-[0.14em] text-ink/60"
