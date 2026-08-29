@@ -5,12 +5,10 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
-// Assumes the Submeet API's password reset endpoint follows the common
-// Laravel convention: POST {base}/reset-password with
+// Confirmed against the live API: POST {base}/api/reset-password with
 // { email, token, password, password_confirmation }, returning 422 with a
-// { message } (or { errors }) body for an invalid/expired token. Adjust the
-// path or payload shape below if the real contract differs.
-const RESET_PASSWORD_PATH = "/reset-password";
+// { message } (or { errors }) body for an invalid/expired token.
+const RESET_PASSWORD_PATH = "/api/reset-password";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
