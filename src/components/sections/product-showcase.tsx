@@ -7,23 +7,23 @@ import { PhoneFrame } from "@/components/showcase/phone-frame";
 
 const DESKTOP_SCREENS = [
   {
-    url: "app.standin.co/reports",
+    url: "app.subngo.app/reports",
     accent: "brand" as const,
     caption: "Admin console · Reports",
     src: "/screenshots/reports.png",
     width: 1851,
     height: 2331,
-    alt: "Standin reports page listing teacher absences, substitute workload, and coverage gaps",
+    alt: "SubnGo reports page listing teacher absences, substitute workload, and coverage gaps",
     offset: "",
   },
   {
-    url: "app.standin.co/schedule",
+    url: "app.subngo.app/schedule",
     accent: "teal" as const,
     caption: "Admin console · Schedule, by teacher",
     src: "/screenshots/schedule-teacher.png",
     width: 1037,
     height: 911,
-    alt: "Standin schedule grid filtered to view by teacher",
+    alt: "SubnGo schedule grid filtered to view by teacher",
     offset: "md:mt-16",
   },
 ];

@@ -5,8 +5,8 @@ import type { ReactNode } from "react";
 
 const ACCENTS = {
   brand: {
-    glow: "rgba(99,102,241,0.35)",
-    shadow: "shadow-[0_60px_120px_-40px_rgba(99,102,241,0.5)]",
+    glow: "rgba(244,147,60,0.35)",
+    shadow: "shadow-[0_60px_120px_-40px_rgba(244,147,60,0.5)]",
   },
   teal: {
     glow: "rgba(34,211,238,0.35)",

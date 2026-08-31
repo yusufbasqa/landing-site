@@ -22,9 +22,9 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Standin — Substitute coverage that finds itself",
+  title: "SubnGo — Substitute coverage that finds itself",
   description:
-    "Standin automatically matches every teacher absence to the right substitute, and keeps finding one if the first pick can't make it.",
+    "SubnGo automatically matches every teacher absence to the right substitute, and keeps finding one if the first pick can't make it.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

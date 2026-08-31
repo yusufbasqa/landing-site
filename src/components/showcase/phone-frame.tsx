@@ -9,8 +9,8 @@ const ACCENTS = {
     shadow: "shadow-[0_45px_100px_-30px_rgba(34,211,238,0.55)]",
   },
   brand: {
-    glow: "rgba(99,102,241,0.4)",
-    shadow: "shadow-[0_45px_100px_-30px_rgba(99,102,241,0.55)]",
+    glow: "rgba(244,147,60,0.4)",
+    shadow: "shadow-[0_45px_100px_-30px_rgba(244,147,60,0.55)]",
   },
 } as const;
 

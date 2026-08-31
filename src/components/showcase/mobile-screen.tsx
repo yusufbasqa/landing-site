@@ -3,7 +3,7 @@ export function MobileScreen() {
     <div className="flex h-full flex-col justify-between p-4 pt-9">
       <div>
         <p className="font-mono text-[9px] uppercase tracking-wide text-ink/35">
-          Standin · now
+          SubnGo · now
         </p>
         <div className="mt-3 rounded-xl border border-accent-green/25 bg-accent-green/10 p-3">
           <div className="flex items-center gap-1.5">

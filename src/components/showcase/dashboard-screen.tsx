@@ -12,7 +12,7 @@ export function DashboardScreen() {
       <div className="hidden w-36 flex-col gap-1 border-r border-border/70 bg-surface-alt/50 p-3 sm:flex">
         <div className="mb-3 flex items-center gap-1.5 px-2">
           <span className="h-2 w-2 rounded-full bg-brand" />
-          <span className="font-display text-xs font-semibold text-ink">Standin</span>
+          <span className="font-display text-xs font-semibold text-ink">SubnGo</span>
         </div>
         {NAV.map((label, i) => (
           <div

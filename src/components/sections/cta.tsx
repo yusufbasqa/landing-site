@@ -19,7 +19,7 @@ export function CTA() {
   return (
     <section id="demo" className="relative overflow-hidden bg-surface py-28 sm:py-36">
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(99,102,241,0.16),rgba(34,211,238,0.1)_60%,transparent_80%)] blur-3xl" />
+        <div className="absolute left-1/2 top-1/2 h-[600px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(244,147,60,0.16),rgba(34,211,238,0.1)_60%,transparent_80%)] blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-[1400px] px-6 sm:px-10">
@@ -38,7 +38,7 @@ export function CTA() {
         </Reveal>
 
         <Reveal delay={0.15} className="mx-auto mt-12 max-w-md">
-          <div className="overflow-hidden rounded-2xl border border-border bg-surface-raised/80 p-7 shadow-[0_30px_90px_-30px_rgba(99,102,241,0.35)] backdrop-blur-md">
+          <div className="overflow-hidden rounded-2xl border border-border bg-surface-raised/80 p-7 shadow-[0_30px_90px_-30px_rgba(244,147,60,0.35)] backdrop-blur-md">
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.form

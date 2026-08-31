@@ -35,7 +35,7 @@ export function AbsenceScene({ progress }: SceneProps) {
         className="absolute right-[6%] top-[13%] w-40 rounded-xl border border-border bg-surface-raised p-2.5 shadow-[0_20px_50px_-20px_rgba(20,21,43,0.35)]"
       >
         <p className="font-mono text-[9px] uppercase tracking-wide text-ink/40">
-          Standin · 6:02 AM
+          SubnGo · 6:02 AM
         </p>
         <p className="mt-1 text-[11px] font-medium text-ink">Ms. Chen · Out sick</p>
       </motion.div>
@@ -45,8 +45,8 @@ export function AbsenceScene({ progress }: SceneProps) {
 
 const STAFF_ORBS = [
   { x: 20, y: 68, color: "#8b5cf6", size: 22 },
-  { x: 30, y: 28, color: "#6366f1", size: 26 },
-  { x: 58, y: 18, color: "#6366f1", size: 20 },
+  { x: 30, y: 28, color: "#f4933c", size: 26 },
+  { x: 58, y: 18, color: "#f4933c", size: 20 },
   { x: 72, y: 58, color: "#8b5cf6", size: 24 },
 ];
 

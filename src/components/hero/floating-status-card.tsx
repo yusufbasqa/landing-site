@@ -13,7 +13,7 @@ export function FloatingStatusCard() {
       <motion.div
         animate={{ y: [0, -9, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="rounded-2xl border border-border/80 bg-surface-raised/75 p-4 shadow-[0_25px_70px_-18px_rgba(99,102,241,0.45)] backdrop-blur-md"
+        className="rounded-2xl border border-border/80 bg-surface-raised/75 p-4 shadow-[0_25px_70px_-18px_rgba(244,147,60,0.45)] backdrop-blur-md"
       >
         <div className="flex items-center justify-between">
           <span className="font-mono text-[11px] uppercase tracking-wide text-ink/45">

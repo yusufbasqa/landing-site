@@ -95,7 +95,7 @@ export function ProblemSolution() {
           </motion.div>
 
           <Reveal delay={0.25}>
-            <div className="rounded-2xl border border-border border-l-2 border-l-brand bg-surface-raised/90 p-7 shadow-[0_30px_80px_-25px_rgba(99,102,241,0.35)] backdrop-blur-md">
+            <div className="rounded-2xl border border-border border-l-2 border-l-brand bg-surface-raised/90 p-7 shadow-[0_30px_80px_-25px_rgba(244,147,60,0.35)] backdrop-blur-md">
               <div className="flex items-center justify-between">
                 <p className="font-mono text-[11px] uppercase tracking-wide text-ink/45">
                   3rd period · Room 214

@@ -108,7 +108,7 @@ export function ResetPasswordForm({
         )}
       </div>
 
-      <div className="overflow-hidden rounded-2xl border border-border bg-surface-raised/80 p-7 shadow-[0_30px_90px_-30px_rgba(99,102,241,0.35)] backdrop-blur-md">
+      <div className="overflow-hidden rounded-2xl border border-border bg-surface-raised/80 p-7 shadow-[0_30px_90px_-30px_rgba(244,147,60,0.35)] backdrop-blur-md">
         <AnimatePresence mode="wait">
           {!linkIsValid ? (
             <motion.div

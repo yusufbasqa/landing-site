@@ -125,7 +125,7 @@ function SceneCanvas({ children }: { children: ReactNode }) {
     <div className="relative mx-auto aspect-[4/3] w-full max-w-[460px]">
       <div
         aria-hidden
-        className="absolute -inset-10 -z-10 rounded-[3rem] bg-[radial-gradient(closest-side,rgba(99,102,241,0.2),transparent_70%)] blur-3xl"
+        className="absolute -inset-10 -z-10 rounded-[3rem] bg-[radial-gradient(closest-side,rgba(244,147,60,0.2),transparent_70%)] blur-3xl"
       />
       <div className="absolute inset-0 overflow-hidden rounded-[2rem] border border-border bg-surface-raised shadow-[0_50px_120px_-40px_rgba(20,21,43,0.35)]">
         <div

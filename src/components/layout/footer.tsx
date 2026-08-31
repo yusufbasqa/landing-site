@@ -11,7 +11,7 @@ export function Footer() {
         <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div>
             <p className="font-display text-lg font-semibold tracking-tight text-ink">
-              Standin
+              SubnGo
             </p>
             <p className="mt-2 max-w-xs text-sm text-ink/55">
               Substitute coverage for schools that can&rsquo;t afford to wait.
@@ -32,7 +32,7 @@ export function Footer() {
         </div>
 
         <div className="mt-10 border-t border-border pt-6">
-          <p className="font-mono text-xs text-ink/40">© 2026 Standin. All rights reserved.</p>
+          <p className="font-mono text-xs text-ink/40">© 2026 SubnGo. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ResetPasswordForm } from "@/components/reset-password/reset-password-form";
 
 export const metadata: Metadata = {
-  title: "Reset your password — Standin",
-  description: "Set a new password for your Standin account.",
+  title: "Reset your password — SubnGo",
+  description: "Set a new password for your SubnGo account.",
 };
 
 function firstParam(value: string | string[] | undefined) {

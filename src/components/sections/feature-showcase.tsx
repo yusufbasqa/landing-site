@@ -34,7 +34,7 @@ export function FeatureShowcase() {
               Ranks every candidate, then picks the fairest one.
             </h3>
             <p className="mt-4 max-w-md text-base leading-relaxed text-ink/60">
-              Standin scores each available substitute on dedication to your
+              SubnGo scores each available substitute on dedication to your
               school and how recently they&rsquo;ve worked — so the same three
               people don&rsquo;t get every shift, and dedicated subs get first
               call at the schools they know.
@@ -56,7 +56,7 @@ export function FeatureShowcase() {
             </h3>
             <p className="mt-4 max-w-md text-base leading-relaxed text-ink/60">
               No new phone calls. When a confirmed substitute becomes
-              unavailable themselves, Standin reassigns from the same ranked
+              unavailable themselves, SubnGo reassigns from the same ranked
               list — instantly, without anyone picking up a phone.
             </p>
           </Reveal>
@@ -76,7 +76,7 @@ export function FeatureShowcase() {
           <DetailCard
             label="PTO tracking"
             title="Absences log themselves."
-            body="Standin ties into your school's clock-in system, so a missed scan becomes a logged absence automatically — no manual entry."
+            body="SubnGo ties into your school's clock-in system, so a missed scan becomes a logged absence automatically — no manual entry."
           >
             <div className="rounded-lg border border-border bg-surface-alt/60 p-3 font-mono text-[11px] text-ink/55">
               <div className="flex items-center justify-between">
@@ -118,7 +118,7 @@ export function FeatureShowcase() {
               className="rounded-lg border border-border bg-surface-raised p-2.5 shadow-sm"
             >
               <span className="font-mono text-[10px] uppercase tracking-wide text-ink/40">
-                Standin · now
+                SubnGo · now
               </span>
               <p className="mt-0.5 text-xs text-ink/75">
                 You&rsquo;re confirmed for 3rd period, Room 214
