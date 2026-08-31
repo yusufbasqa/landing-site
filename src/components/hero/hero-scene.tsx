@@ -42,37 +42,11 @@ const AXIS_VECTORS: Record<Axis, THREE.Vector3> = {
   z: new THREE.Vector3(0, 0, 1),
 };
 
-// Traditional Rubik's Cube hues, mixed ~90% toward black so the form reads
-// as a dark, almost monochrome object — hue only surfaces under highlights.
-const DARKEN = 0.9;
-function darken(hex: string) {
-  return new THREE.Color(hex).lerp(new THREE.Color("#000000"), DARKEN);
-}
+// Light theme: cubies are a translucent sunflower orange rather than the
+// traditional six-color Rubik's Cube faces.
+const CUBIE_COLOR = "#FDAE44";
 
-const FACE_COLORS = {
-  posX: darken("#d32f2f"), // red
-  negX: darken("#f57c00"), // orange
-  posY: darken("#eeeeee"), // white
-  negY: darken("#f5c518"), // yellow
-  posZ: darken("#1565c0"), // blue
-  negZ: darken("#2e7d32"), // green
-};
-
-function cubieColor(x: number, y: number, z: number) {
-  const contributions: THREE.Color[] = [];
-  if (x === 1) contributions.push(FACE_COLORS.posX);
-  if (x === -1) contributions.push(FACE_COLORS.negX);
-  if (y === 1) contributions.push(FACE_COLORS.posY);
-  if (y === -1) contributions.push(FACE_COLORS.negY);
-  if (z === 1) contributions.push(FACE_COLORS.posZ);
-  if (z === -1) contributions.push(FACE_COLORS.negZ);
-
-  const result = new THREE.Color(0, 0, 0);
-  contributions.forEach((c) => result.add(c));
-  return result.multiplyScalar(1 / contributions.length);
-}
-
-type CubieDatum = { coord: Vec3; color: THREE.Color };
+type CubieDatum = { coord: Vec3 };
 
 function buildCubies(): CubieDatum[] {
   const cubies: CubieDatum[] = [];
@@ -80,7 +54,7 @@ function buildCubies(): CubieDatum[] {
     for (const y of GRID) {
       for (const z of GRID) {
         if (x === 0 && y === 0 && z === 0) continue;
-        cubies.push({ coord: [x, y, z], color: cubieColor(x, y, z) });
+        cubies.push({ coord: [x, y, z] });
       }
     }
   }
@@ -140,15 +114,11 @@ function RubiksCube({ isMobile }: { isMobile: boolean }) {
 
     const outer = outerRef.current;
     if (outer) {
-      const targetY = spin.current + state.pointer.x * 0.25 + scrollT * 0.35;
-      const targetX = -state.pointer.y * 0.15;
+      const targetY = spin.current + scrollT * 0.35;
+      const targetX = 0;
       outer.rotation.y = THREE.MathUtils.lerp(outer.rotation.y, targetY, 0.04);
       outer.rotation.x = THREE.MathUtils.lerp(outer.rotation.x, targetX, 0.04);
-      outer.position.y = THREE.MathUtils.lerp(
-        outer.position.y,
-        baseY - scrollT * 1.4,
-        0.05
-      );
+      outer.position.y = THREE.MathUtils.lerp(outer.position.y, baseY, 0.05);
       outer.position.x = THREE.MathUtils.lerp(outer.position.x, baseX, 0.08);
       outer.scale.setScalar(
         THREE.MathUtils.lerp(outer.scale.x, cubeScale, 0.08)
@@ -235,13 +205,13 @@ function RubiksCube({ isMobile }: { isMobile: boolean }) {
             position={[c.coord[0] * SPACING, c.coord[1] * SPACING, c.coord[2] * SPACING]}
           >
             <meshPhysicalMaterial
-              color={c.color}
-              emissive={c.color}
-              emissiveIntensity={0.3}
-              roughness={0.4}
-              metalness={0.3}
-              clearcoat={0.7}
-              clearcoatRoughness={0.2}
+              color={CUBIE_COLOR}
+              roughness={0.12}
+              metalness={0}
+              clearcoat={1}
+              clearcoatRoughness={0.08}
+              transparent
+              opacity={0.5}
             />
           </RoundedBox>
         ))}
@@ -260,11 +230,11 @@ export function HeroScene() {
       camera={{ position: [0, 0, 8.5], fov: 38 }}
       gl={{ antialias: true, alpha: true }}
     >
-      <ambientLight intensity={0.5} />
-      <pointLight position={[-4, 3, 4]} intensity={75} color="#f4933c" />
-      <pointLight position={[4, -2, 3]} intensity={60} color="#22d3ee" />
-      <pointLight position={[0, 4, -3]} intensity={40} color="#ffffff" />
-      <pointLight position={[-2, -3, -4]} intensity={22} color="#8b5cf6" />
+      <ambientLight intensity={0.55} />
+      <pointLight position={[-4, 3, 4]} intensity={55} color="#FDAE44" />
+      <pointLight position={[4, -2, 3]} intensity={28} color="#ffffff" />
+      <pointLight position={[0, 4, -3]} intensity={26} color="#ffffff" />
+      <pointLight position={[-2, -3, -4]} intensity={16} color="#ffffff" />
       <RubiksCube isMobile={isMobile} />
     </Canvas>
   );
