@@ -32,8 +32,8 @@ export function CTA() {
             See it match your next absence.
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-ink/60">
-            Fifteen minutes. Bring a real schedule if you want — we&rsquo;ll show
-            you a live match.
+            Fifteen minutes. Bring a real schedule if you want, and we&rsquo;ll
+            show you a live match.
           </p>
         </Reveal>
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ResetPasswordForm } from "@/components/reset-password/reset-password-form";
 
 export const metadata: Metadata = {
-  title: "Reset your password — SubnGo",
+  title: "Reset your password | SubnGo",
   description: "Set a new password for your SubnGo account.",
 };
 

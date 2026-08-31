@@ -35,7 +35,7 @@ export function FeatureShowcase() {
             </h3>
             <p className="mt-4 max-w-md text-base leading-relaxed text-ink/60">
               SubnGo scores each available substitute on dedication to your
-              school and how recently they&rsquo;ve worked — so the same three
+              school and how recently they&rsquo;ve worked, so the same three
               people don&rsquo;t get every shift, and dedicated subs get first
               call at the schools they know.
             </p>
@@ -57,7 +57,7 @@ export function FeatureShowcase() {
             <p className="mt-4 max-w-md text-base leading-relaxed text-ink/60">
               No new phone calls. When a confirmed substitute becomes
               unavailable themselves, SubnGo reassigns from the same ranked
-              list — instantly, without anyone picking up a phone.
+              list instantly, without anyone picking up a phone.
             </p>
           </Reveal>
           <Reveal delay={0.15} className="lg:order-1">
@@ -76,12 +76,12 @@ export function FeatureShowcase() {
           <DetailCard
             label="PTO tracking"
             title="Absences log themselves."
-            body="SubnGo ties into your school's clock-in system, so a missed scan becomes a logged absence automatically — no manual entry."
+            body="SubnGo ties into your school's clock-in system, so a missed scan becomes a logged absence automatically. No manual entry."
           >
             <div className="rounded-lg border border-border bg-surface-alt/60 p-3 font-mono text-[11px] text-ink/55">
               <div className="flex items-center justify-between">
                 <span>Clock-in, 3rd period</span>
-                <span className="text-ink/35">— no scan —</span>
+                <span className="text-ink/35">(no scan)</span>
               </div>
               <div className="mt-1.5 flex items-center justify-between">
                 <span>PTO logged</span>
@@ -93,7 +93,7 @@ export function FeatureShowcase() {
           <DetailCard
             label="Messaging"
             title="Only who needs to talk, can."
-            body="Substitutes and staff message each other while a coverage is active — and lose access the moment it ends."
+            body="Substitutes and staff message each other while a coverage is active, and lose access the moment it ends."
           >
             <div className="space-y-1.5">
               <div className="ml-auto w-fit max-w-[85%] rounded-lg rounded-br-sm bg-brand/10 px-2.5 py-1.5 text-xs text-ink/80">
@@ -129,7 +129,7 @@ export function FeatureShowcase() {
           <DetailCard
             label="Multi-school"
             title="One account, every building."
-            body="Districts run every school's coverage from one place — substitutes can be dedicated to one site or float across several."
+            body="Districts run every school's coverage from one place. Substitutes can be dedicated to one site or float across several."
           >
             <div className="space-y-1.5 font-mono text-xs">
               <div className="flex items-center gap-2 text-ink">

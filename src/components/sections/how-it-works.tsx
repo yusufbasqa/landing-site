@@ -28,7 +28,7 @@ const STAGES = [
   {
     time: "6:04 AM",
     eyebrow: "The match",
-    heading: "M. Alvarez — fairness score 92 — matched in 40 seconds.",
+    heading: "M. Alvarez, fairness score 92, matched in 40 seconds.",
   },
   {
     time: "6:19 AM",

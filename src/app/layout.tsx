@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SubnGo — Substitute coverage that finds itself",
+  title: "SubnGo | Substitute coverage that finds itself",
   description:
     "SubnGo automatically matches every teacher absence to the right substitute, and keeps finding one if the first pick can't make it.",
 };

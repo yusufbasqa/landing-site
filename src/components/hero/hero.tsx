@@ -74,7 +74,7 @@ export function Hero() {
           </motion.h1>
 
           <motion.p variants={item} className="mt-6 max-w-md text-lg leading-relaxed text-ink/65">
-            SubnGo matches every absence to the right substitute automatically —
+            SubnGo matches every absence to the right substitute automatically,
             and keeps looking if the first pick can&rsquo;t make it.
           </motion.p>
 
